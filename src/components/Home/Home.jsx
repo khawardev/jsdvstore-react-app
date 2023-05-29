@@ -10,10 +10,12 @@ import Newsletter from "../Footer/Newsletter/Newsletter";
 import Footer from "../Footer/Footer";
 import App from '../../App';
 import "./Home.scss";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
 
+    const Navigate = useNavigate();
 
     //Full stack video
     const { categories, setCategories } = useContext(Context);
@@ -30,6 +32,8 @@ const Home = () => {
             .then(data => {
                 setCategoryid(data?.id)
                 setCategories(data);
+                console.log("Category idsasssssssss : ", data?.id)
+
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -42,11 +46,20 @@ const Home = () => {
             .then(response => response.json())
             .then(data => {
                 // const category = data.find(data => data.id === 0);
-                const data1 = data[0]?.products;
-                const data2 = data[1]?.products;
-                const data3 = data[2]?.products;
-                const data4 = data[3]?.products;
-                const combinedData = [...data1, ...data2, ...data3, ...data4];
+                const combinedData = [];
+
+                data.map(category => {
+                    const products = category?.products;
+                    combinedData.push(...products);
+                });
+
+
+                // const data1 = data[0]?.products;
+                // const data2 = data[1]?.products;
+                // const data3 = data[2]?.products;
+                // const data4 = data[3]?.products;
+
+                // const combinedData = [...data1, ...data2, ...data3, ...data4];
 
                 setProducts(combinedData);
             })
@@ -54,11 +67,12 @@ const Home = () => {
                 console.error('Error:', error);
             });
     }
+
     return (
         <div>
             <Banner />
             <Category categories={categories} />
-            <Products ProductHeading={"Popular Products"} products={products} categoryid={categoryid} />
+            <Products ProductHeading={"Popular Products"} products={products} onClick={() => Navigate(`category/${categoryid}`)} />
             <Newsletter />
             <Footer />
         </div>

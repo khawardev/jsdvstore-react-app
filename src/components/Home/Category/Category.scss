@@ -1,0 +1,64 @@
+@import "../../../css-config/mixins.scss";
+.Parent-category-Image-Hover {
+  display: inline-block;
+  overflow: hidden;
+  background-color: #eff4ee;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.Parent-category-Image-Hover img {
+  width: 100%;
+  display: block;
+  transition: 0.3s;
+}
+.Parent-category-Image-Hover:hover img {
+  opacity: 0.9;
+  // transform: scale(1.05);
+  transform-origin: 50% 50%;
+}
+
+span {
+  position: relative;
+}
+
+.sec-heading {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  @include md {
+    font-size: 28px;
+
+  }
+  &:after {
+    content: "";
+    display: block;
+    margin-top: -5px;
+    margin-left: 2px;
+    width: 50px;
+    height: 3px;
+
+
+    background-color: #8e2de2;
+    @include md {
+      margin-top: -5px;
+    }
+  }
+}
+
+
+
+
+
+// .box-shadow{
+//   transition:0.5s;
+//   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+// }
+.bottom-top{
+  transition:0.5s;
+}
+.bottom-top:hover{
+  transform: translateY(-10px);
+  transition: 0.3s;
+}
+
+

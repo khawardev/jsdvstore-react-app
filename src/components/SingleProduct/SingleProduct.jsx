@@ -1,21 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import "./SingleProduct.scss";
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import RelatedProducts from './RelatedProducts/RelatedProducts'
 import { useState, useEffect, useContext } from 'react';
 import { FaPlus, FaMinus, FaShoppingCart } from 'react-icons/fa';
 import Newsletter from '../Footer/Newsletter/Newsletter';
 import Footer from '../Footer/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter, faInstagram, faLinkedinIn, faPinterest } from '@fortawesome/free-brands-svg-icons';
+
+
+
+import { useNavigate } from "react-router-dom";
 // import { FaFacebookCi, FaTwitterSquare, FaInstagramSquare, FaLinkedin, FaPinterestSquare } from 'react-icons/fa';
 import { Context } from "../../utils/AppContext";
 const SingleProduct = () => {
-
+    const Navigate = useNavigate();
     const { products, setProducts } = useContext(Context);
     const { handleAddToCart } = useContext(Context);
     const { categorytitle, setcategorytitle } = useContext(Context);
     useEffect(() => {
         window.scrollTo({ top: 0 });
-        getSingleProduct();
     }, []);
 
     const [quantity, setQuantity] = useState(1);
@@ -30,8 +36,7 @@ const SingleProduct = () => {
 
     const { cid } = useParams();
     const { pid } = useParams();
-
-    function getSingleProduct() {
+    useEffect(() => {
         fetch('https://khawarsultan.github.io/Jsdvstore-Api/api')
             .then(response => response.json())
             .then(data => {
@@ -46,13 +51,13 @@ const SingleProduct = () => {
             .catch(error => {
                 console.error('Error:', error);
             });
-    }
+
+    }, [cid, pid]);
 
 
 
     // const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
     // const Category_id = data?.data?.data?.[0]?.attributes?.categories?.data?.[0]?.id;
-
 
     return (
         <>
@@ -93,15 +98,17 @@ const SingleProduct = () => {
                         <hr />
                         <div className="my-4">
 
-                            <p> <b>Category: </b> {categorytitle} </p>
-                            <div className="d-flex ">
-                                <p className="a"> <b>Share:</b> </p>
-                                <span className="social-links">
-                                    <a href="#"><i className="fab fa-facebook-f text-black"></i></a>
-                                    <a href="#"><i className="fab fa-twitter text-black"></i></a>
-                                    <a href="#"><i className="fab fa-instagram text-black"></i></a>
-                                    <a href="#"><i className="fab fa-linkedin-in text-black"></i></a>
-                                    <a href="#"><i className="fab  fa-pinterest text-black"></i></a>
+                            <p> <b>Category: </b > <span className="Filled-Category-Button rounded-pill  align-items-center"
+                                onClick={() => { Navigate(`/category/${cid}`) }}> {categorytitle}</span>  </p>
+                            <div className="d-flex   align-content-center align-items-center  ">
+                                <span className="a"> <b>Share: &nbsp; </b> </span>
+                                <span className="social-links gap-2 ">
+                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faFacebookF} />
+                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faTwitter} />
+                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faInstagram} />
+                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faLinkedinIn} />
+                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faPinterest} />
+
                                 </span>
                             </div>
 

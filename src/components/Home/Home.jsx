@@ -52,8 +52,6 @@ const Home = () => {
                     const products = category?.products;
                     combinedData.push(...products);
                 });
-
-
                 // const data1 = data[0]?.products;
                 // const data2 = data[1]?.products;
                 // const data3 = data[2]?.products;
@@ -72,7 +70,7 @@ const Home = () => {
         <div>
             <Banner />
             <Category categories={categories} />
-            <Products ProductHeading={"Popular Products"} products={products} onClick={() => Navigate(`category/${categoryid}`)} />
+            <Products ProductHeading={"Popular Products"} products={products}  />
             <Newsletter />
             <Footer />
         </div>

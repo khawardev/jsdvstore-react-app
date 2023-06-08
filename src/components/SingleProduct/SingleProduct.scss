@@ -19,8 +19,8 @@
   cursor: pointer;
   outline: none;
   padding: 7px;
-  
-  @include md{
+
+  @include md {
     padding: 9px;
   }
 }
@@ -49,17 +49,33 @@
   font-size: 16px;
 }
 
-.Singleproduct-image{
-  background-color:#eff4ee;
+.Singleproduct-image {
+  background-color: #eff4ee;
 
-    position: relative;
-    width: 100%;
-    @include md{
-      width: 80%;
-    }
+  position: relative;
+  width: 100%;
+  @include md {
+    width: 80%;
+  }
 }
 .truncate {
   white-space: nowrap;
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
+}
+.Filled-Category-Button {
+  background-color: #872ce1;
+  color: white;
+  cursor: pointer;
+  padding: 0px 15px;
+  display: inline-block;
+  transition: 0.4s;
+  border: none;
+}
+
+.Filled-Category-Button:hover {
+  background-color: #6d1fbb;
+  color: white;
+  transition: 0.4s;
+  border: none;
 }

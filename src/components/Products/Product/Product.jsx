@@ -1,11 +1,38 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react';
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "./Product.scss";
 import "../Products.scss";
-const Product = ({ products, categoryid }) => {
+
+const Product = ({ products }) => {
     console.log("Type of products:", typeof products);
     const Navigate = useNavigate();
+
+
+    const [url, setUrl] = useState(null);
+
+    const findCategoryIdByProductId = (producttitle) => {
+        console.log("product title: ", producttitle);
+        fetch('https://khawarsultan.github.io/Jsdvstore-Api/api')
+            .then(response => response.json())
+            .then(data => {
+                data.map((data) => {
+                    data.products.forEach(product => {
+                        if (product.title === producttitle) {
+                            setUrl("/category/" + data.id + "/Single-Product/" + product.id);
+                        }
+                    });
+                });
+            });
+    };
+
+    useEffect(() => {
+        if (url !== null) {
+            Navigate(url);
+        }
+    }, [url]);
 
     if (!Array.isArray(products)) {
         // Handle the case when products is not an array
@@ -15,17 +42,22 @@ const Product = ({ products, categoryid }) => {
     return (
         <>
             {
-                products?.map((products) => (
-                    <div key={products?.id} className="col-lg-3 col-md-4 col-sm-6 col-6 py-3 Parent-Col-Hover " onClick={() => Navigate("/category/" + categoryid + "/Single-Product/" + products.id)}>
-                        <div className="Parent-product-Image-Hover">
-                            <img src={products?.img} />
+
+                products?.map((product) => {
+                    return (
+                        <div key={product?.id} className="col-lg-3 col-md-4 col-sm-6 col-6 py-3 Parent-Col-Hover"
+                            onClick={() => { findCategoryIdByProductId(product.title) }}>
+                            <div className="Parent-product-Image-Hover">
+                                <img src={product?.img} />
+                            </div>
+                            <div className="my-2 product-description">
+                                <span>{product?.title}</span><br />
+                                <span className="my-2" style={{ fontSize: '20px' }}><b>$ {product?.price}</b></span>
+                            </div>
                         </div>
-                        <div className="my-2 product-description">
-                            <span>{products?.title}</span><br />
-                            <span className="my-2" style={{ fontSize: '20px' }}><b>$ {products?.price}</b></span>
-                        </div>
-                    </div>
-                ))
+                    );
+                })
+
             }
 
         </>

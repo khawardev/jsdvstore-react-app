@@ -38,9 +38,7 @@ const Header = () => {
                     </div>
                     <div className="  ">
                         <span className="d-flex list-unstyled gap-4 " >
-                            {/* <li>
-                                <TbHeart className="icon" />
-                            </li> */}
+                          
                             <li className=" position-relative pointer" onClick={() => setShowCart(true)}>
                                 <FiShoppingCart className="cart-icon" />
                                 {!!cartCount && <span className="cart-popup">{cartCount}</span>}

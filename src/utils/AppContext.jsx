@@ -25,43 +25,52 @@ function Appcontext({ children }) {
     useEffect(() => {
 
         let cartCount = 0;
-        cartItems.map(item => cartCount += item.attributes.quantity)
+        cartItems.map(item => cartCount += item.quantity)
         setCarCount(cartCount);
 
-
-
         let subTotal = 0;
-        cartItems.map(item => subTotal += item.attributes.price * item.attributes.quantity)
+        cartItems.map(item => subTotal += item.price * item.quantity)
         setCartSubTotal(subTotal);
 
     }, [cartItems]);
-    const handleAddToCart = (product, quantity) => {
 
+
+    const handleAddToCart = (product, quantity, productTitle) => {
         let items = [...cartItems];
-        let index = items.findIndex(p => p.id === product.id)
+        let index = items.findIndex(product => product.title === productTitle)
+        console.log('ITEMS INDEX : ', index);
+
         if (index !== -1) {
-            items[index].attributes.quantity += quantity;
+            items[index].quantity += quantity;
+            console.log('ITEMS THAT ARE ALREADY PRESENT : ', index);
         } else {
-            product.attributes.quantity = quantity;
+            product.quantity = quantity;
             items = [...items, product];
+            console.log('ITEMS THAT ARE NEWLY ADDED : ', index);
         }
         setCartItems(items);
-    }
+    };
 
-    const handleRemoveFromCart = (product) => {
+
+    //working
+    const handleRemoveFromCart = (product, productTitle) => {
         let items = [...cartItems];
-        items = items.filter(p => p.id !== product.id)
+        items = items.filter(product => product.title !== productTitle)
         setCartItems(items);
     }
-    const handleCartProductQuantity = (type, product) => {
+    //working
+    const handleCartProductQuantity = (type, product, productTitle) => {
         let items = [...cartItems];
-        let index = items.findIndex(p => p.id === product.id)
+        let index = items.findIndex(product => product.title === productTitle)
         if (type === "inc") {
-            items[index].attributes.quantity += 1;
-
+            items[index].quantity += 1;
         } else if (type === "dec") {
-            if (items[index].attributes.quantity === 1) return;
-            items[index].attributes.quantity -= 1;
+            if (items[index].quantity === 1) {
+                return;
+            }
+            else {
+                items[index].quantity -= 1;
+            }
         }
         setCartItems(items);
     }

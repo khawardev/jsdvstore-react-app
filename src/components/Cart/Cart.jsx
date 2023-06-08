@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-lone-blocks */
 /* eslint-disable no-unused-vars */
 import "./Cart.scss";

@@ -42,10 +42,10 @@ const SingleProduct = () => {
             .then(data => {
                 const category = data[cid];
                 setcategorytitle(category?.title);
-                console.log("Category Data Single: ", category);
+                // console.log("Category Data Single: ", category);
 
                 const product = category?.products[Number(pid)];
-                console.log("Product Data Single: ", product);
+                // console.log("Product Data Single: ", product);
                 setProducts(product);
             })
             .catch(error => {
@@ -53,11 +53,10 @@ const SingleProduct = () => {
             });
 
     }, [cid, pid]);
+   
 
 
 
-    // const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
-    // const Category_id = data?.data?.data?.[0]?.attributes?.categories?.data?.[0]?.id;
 
     return (
         <>
@@ -86,8 +85,7 @@ const SingleProduct = () => {
 
                             </div>
                             <button className="Filled-purple-Button rounded-pill gap-2 d-flex align-items-center" onClick={() => {
-                                console.log("call handleAddToCart")
-                                //    handleAddToCart(data?.data?.data?.[0], quantity)
+                                handleAddToCart(products, quantity, products.title)
                                 setQuantity(1);
 
                             }} >

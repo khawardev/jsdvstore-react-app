@@ -23,23 +23,21 @@ const Home = () => {
     const { categoryid, setCategoryid } = useContext(Context);
     useEffect(() => {
         getProducts();
-        getCategories();
     });
-
-    function getCategories() {
+    useEffect(() => {
         fetch('https://khawarsultan.github.io/Jsdvstore-Api/api')
             .then(response => response.json())
             .then(data => {
-                setCategoryid(data?.id)
+                setCategoryid(data.id)
                 setCategories(data);
-                console.log("Category idsasssssssss : ", data?.id)
 
             })
             .catch(error => {
                 console.error('Error:', error);
             });
 
-    }
+    });
+
 
     function getProducts() {
         fetch('https://khawarsultan.github.io/Jsdvstore-Api/api')
@@ -70,7 +68,7 @@ const Home = () => {
         <div>
             <Banner />
             <Category categories={categories} />
-            <Products ProductHeading={"Popular Products"} products={products}  />
+            <Products ProductHeading={"Popular Products"} products={products} />
             <Newsletter />
             <Footer />
         </div>

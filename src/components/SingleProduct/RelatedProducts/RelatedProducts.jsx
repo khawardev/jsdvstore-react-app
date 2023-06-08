@@ -3,12 +3,8 @@ import Products from '../../Products/Products';
 import { useEffect, useContext } from 'react';
 import { Context } from '../../../utils/AppContext';
 
-const RelatedProducts = ({ ProductId, CategoryId }) => {
+const RelatedProducts = ({ CategoryId }) => {
 
-
-
-
-    console.log("Product id: ", ProductId);
     const { categories, setCategories } = useContext(Context);
 
     useEffect(() => {

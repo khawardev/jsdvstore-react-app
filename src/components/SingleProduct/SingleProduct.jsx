@@ -103,11 +103,11 @@ const SingleProduct = () => {
                             <div className="d-flex   align-content-center align-items-center  ">
                                 <span className="a"> <b>Share: &nbsp; </b> </span>
                                 <span className="social-links gap-2 ">
-                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faFacebookF} />
-                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faTwitter} />
-                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faInstagram} />
-                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faLinkedinIn} />
-                                    <FontAwesomeIcon className="pointer" size="1rem" icon={faPinterest} />
+                                    <FontAwesomeIcon className="pointer rounded-icon" size="1rem" icon={faFacebookF} />
+                                    <FontAwesomeIcon className="pointer rounded-icon" size="1rem" icon={faTwitter} />
+                                    <FontAwesomeIcon className="pointer rounded-icon" size="1rem" icon={faInstagram} />
+                                    <FontAwesomeIcon className="pointer rounded-icon" size="1rem" icon={faLinkedinIn} />
+                                    <FontAwesomeIcon className="pointer rounded-icon" size="1rem" icon={faPinterest} />
 
                                 </span>
                             </div>

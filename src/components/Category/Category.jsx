@@ -8,17 +8,16 @@ import Footer from '../Footer/Footer'
 import { Context } from '../../utils/AppContext';
 const Category = () => {
 
-    useEffect(() => {
-        window.scrollTo({ top: 0 });
-        getCateoryProduct();
-    }, []);
+
 
 
     const { id } = useParams();
     const { products, setProducts } = useContext(Context);
     const { categorytitle, setcategorytitle } = useContext(Context);
-
-    function getCateoryProduct() {
+    useEffect(() => {
+        window.scrollTo({ top: 0 });
+    }, [id]);
+    useEffect(() => {
 
         fetch('https://khawarsultan.github.io/Jsdvstore-Api/api')
             .then(response => response.json())
@@ -33,7 +32,8 @@ const Category = () => {
             .catch(error => {
                 console.error('Error:', error);
             });
-    }
+    }, [id]);
+
     return (
         <>
 

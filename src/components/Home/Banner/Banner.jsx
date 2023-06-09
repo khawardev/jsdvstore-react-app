@@ -3,6 +3,20 @@ import "./Banner.scss";
 import Heroimage from "../../../assets/banner-img.png"
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 function Banner() {
+
+    const scrollBelowToLimit = (limit) => {
+        const targetPosition = limit > 0 ? limit : 0;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth',
+        });
+    }
+    const scrollToBottom = () => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth',
+        });
+    }
     return (
         <>
             <div className="gradient py-sm-5 py-0" >
@@ -12,8 +26,8 @@ function Banner() {
                             <span className="Banner-heading">SALES</span>
                             <p>An online store catering to all electronic gadget lovers.Our wide variety of products comes from top-notch brands and offers high quality at competitive prices, Order Now !! </p>
                             <div className=" d-flex align-items-sm-start justify-content-sm-start align-items-center justify-content-center gap-2">
-                                <button className="Holo-Button">READ MORE</button>
-                                <button className="Filled-Button ">SHOP NOW</button>
+                                <button className="Holo-Button" onClick={scrollToBottom}>READ MORE</button>
+                                <button className="Filled-Button " onClick={() => scrollBelowToLimit(750)}>SHOP NOW</button>
                             </div>
 
                         </div>

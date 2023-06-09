@@ -1,6 +1,6 @@
 @import "../../../css-config/mixins.scss";
 .gradient {
-  background: linear-gradient(to right,  #872ce1, #3f18d5);
+  background: linear-gradient(to right, #872ce1, #3f18d5);
   // #7d2ad0,
 }
 .Banner-img {
@@ -54,9 +54,9 @@
 .left {
   order: 2;
 }
-.text-align{
+.text-align {
   text-align: center;
-  @include md{
+  @include md {
     text-align: left;
   }
 }
@@ -74,4 +74,27 @@
   }
 }
 
+.scroll-top {
+  height: 45px;
+  width: 45px;
+  background: linear-gradient(to right, #872ce1, #3f18d5);
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  border-radius: 50px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.336);
+  // transform: scale(0.9);
+  transition: 0.3s ease-in-out transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  scroll-behavior: smooth;
+}
 
+.scroll-top svg {
+  width: 50%;
+  color: #ffffff;
+  pointer-events: none;
+}

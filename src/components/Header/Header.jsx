@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-lone-blocks */
 import { useNavigate } from "react-router-dom";
@@ -19,7 +20,12 @@ const Header = () => {
     const Navigate = useNavigate();
     const [ShowCart, setShowCart] = useState(false);
     const [ShowSearch, setShowSearch] = useState(false);
-
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }
     return (
         <>
 
@@ -30,7 +36,7 @@ const Header = () => {
                             <li className="bold">
                                 <TbSearch className="icon pointer " onClick={() => setShowSearch(true)} />
                             </li>
-                           
+
                         </span>
                     </div>
                     <div className="list-unstyled  ">
@@ -38,7 +44,7 @@ const Header = () => {
                     </div>
                     <div className="  ">
                         <span className="d-flex list-unstyled gap-4 " >
-                          
+
                             <li className=" position-relative pointer" onClick={() => setShowCart(true)}>
                                 <FiShoppingCart className="cart-icon" />
                                 {!!cartCount && <span className="cart-popup">{cartCount}</span>}
@@ -46,6 +52,11 @@ const Header = () => {
                         </span>
                     </div>
                 </div>
+            </div>
+            <div onClick={scrollToTop} className="scroll-top" >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
+                </svg>
             </div>
             {ShowCart && <Cart setShowCart={setShowCart} />}
             {ShowSearch && <Search setShowSearch={setShowSearch} />}

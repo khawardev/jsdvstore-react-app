@@ -64,6 +64,7 @@ const Home = () => {
 
     return (
         <div>
+            
             <Banner />
             <Category categories={categories} />
             <Products ProductHeading={"Popular Products"} products={products} />

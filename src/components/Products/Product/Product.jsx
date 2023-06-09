@@ -43,8 +43,8 @@ const Product = ({ products }) => {
                             <div className="Parent-product-Image-Hover">
                                 <img src={product?.img} />
                             </div>
-                            <div className="my-2 product-description">
-                                <span>{product?.title}</span><br />
+                            <div className="my-2 product-description para-dots">
+                                <span >{product?.title}</span><br />
                                 <span className="my-2" style={{ fontSize: '20px' }}><b>$ {product?.price}</b></span>
                             </div>
                         </div>

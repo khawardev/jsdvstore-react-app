@@ -30,7 +30,6 @@ const Home = () => {
             .then(data => {
                 setCategoryid(data.id)
                 setCategories(data);
-
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -45,7 +44,6 @@ const Home = () => {
             .then(data => {
                 // const category = data.find(data => data.id === 0);
                 const combinedData = [];
-
                 data.map(category => {
                     const products = category?.products;
                     combinedData.push(...products);

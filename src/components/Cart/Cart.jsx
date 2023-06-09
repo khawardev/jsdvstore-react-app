@@ -11,7 +11,7 @@ import CartItem from "./CartItem/CartItem";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from 'react'
 import { Context } from "../../utils/AppContext";
-const Cart = ({ setShowCart }) => {
+const Cart = ({ setShowCart, setButtonVisible }) => {
 
 
   const { cartItems, cartSubTotal } = useContext(Context);
@@ -26,7 +26,7 @@ const Cart = ({ setShowCart }) => {
         <div className="content-a">
           <div className="form-field-cart ">
             <div className="Cart-product-heading d-flex  align-items-center">SHOPPING CART</div>
-            <MdClose className='pointer cart-close' onClick={() => setShowCart(false)} />
+            <MdClose className='pointer cart-close' onClick={() => { setShowCart(false); setButtonVisible(true) }} />
           </div>
 
           {!cartItems?.length && <div className="Empty-cart">
@@ -45,7 +45,7 @@ const Cart = ({ setShowCart }) => {
           </div>
           <hr className="m-0" />
           <div className="p-1 text-center d-flex" >
-            <button className="Filled-purple-Button "  style={{ margin: 'auto 0px auto auto', textAlign: 'center'}}  >CHECKOUT</button>
+            <button className="Filled-purple-Button " style={{ margin: 'auto 0px auto auto', textAlign: 'center' }}  >CHECKOUT</button>
           </div>
         </div>}
 

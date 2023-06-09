@@ -26,13 +26,16 @@ const Header = () => {
             behavior: 'smooth',
         });
     }
+
+    const [isButtonVisible, setButtonVisible] = useState(true);
+
     return (
         <>
 
             <div className="main-header px-3" >
                 <div className="container py-3 text-white main-header-child ">
-                    <div className=" links ">
-                        <span className=" list-unstyled  d-flex ">
+                    <div className=" links " >
+                        <span className=" list-unstyled  d-flex " >
                             <li className="bold">
                                 <TbSearch className="icon pointer " onClick={() => setShowSearch(true)} />
                             </li>
@@ -45,7 +48,7 @@ const Header = () => {
                     <div className="  ">
                         <span className="d-flex list-unstyled gap-4 " >
 
-                            <li className=" position-relative pointer" onClick={() => setShowCart(true)}>
+                            <li className=" position-relative pointer" onClick={() => { setShowCart(true); setButtonVisible(false); }}>
                                 <FiShoppingCart className="cart-icon" />
                                 {!!cartCount && <span className="cart-popup">{cartCount}</span>}
                             </li>
@@ -53,12 +56,13 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <div onClick={scrollToTop} className="scroll-top" >
+            {console.log("isButtonVisible : ", isButtonVisible)}
+            {isButtonVisible && <div onClick={scrollToTop} className="scroll-top"  >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                 </svg>
-            </div>
-            {ShowCart && <Cart setShowCart={setShowCart} />}
+            </div>}
+            {ShowCart && <Cart setShowCart={setShowCart} setButtonVisible={setButtonVisible} />}
             {ShowSearch && <Search setShowSearch={setShowSearch} />}
         </>
 

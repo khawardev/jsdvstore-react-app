@@ -37,12 +37,12 @@
   border-radius: 50%;
 }
 .links {
-  display: none;
+  display: inline;
   @include md {
     display: inline;
   }
 }
-.pointer{
+.pointer {
   cursor: pointer;
 }
 // .sticky-header {

@@ -7,45 +7,9 @@ import Singleproduct from '../../../assets/products/headphone-prod-5.webp';
 import { FaPlus, FaMinus, FaShoppingCart } from 'react-icons/fa';
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-const Search = ({ setShowSearch }) => {
+const Search = ({ setShowSearch, setButtonVisible }) => {
 
     const Navigate = useNavigate();
-    // const [products, setProducts] = useState([]);
-    // const [searchTerm, setSearchTerm] = useState('');
-    // const [filteredProducts, setFilteredProducts] = useState([]);
-
-    // useEffect(() => {
-    //     const filtered = products.filter(
-    //         products => products.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
-    //     )
-    //     setFilteredProducts(filtered);
-    // }, [searchTerm, products]);
-
-    // const handleSearch = event => {
-    //     setSearchTerm(event.target.value);
-    // };
-
-    // useEffect(() => {
-    //     fetch('https://khawarsultan.github.io/Jsdvstore-Api/api')
-    //         .then(response => response.json())
-    //         .then(data => {
-
-    //             let combinedData = [];
-    //             data.map(category => {
-    //                 const products = category?.products;
-    //                 combinedData.push(...products);
-    //             });
-
-    //             setProducts(combinedData);
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching data:', error);
-    //         });
-    // }, []);
-
-
-
-
     const [data, setData] = useState([])
     const [records, setRecords] = useState([])
 
@@ -66,7 +30,8 @@ const Search = ({ setShowSearch }) => {
     }, []);
 
     const Filter = (event) => {
-        setRecords(data.filter(product => product.title.toLowerCase().includes(event.target.value)))
+        const searchText = event.target.value.toLowerCase();
+        setRecords(data.filter(product => product.title.toLowerCase().includes(searchText)))
     }
     const findCategoryIdByProductId = (producttitle) => {
         console.log("product title: ", producttitle);
@@ -92,9 +57,9 @@ const Search = ({ setShowSearch }) => {
                     // onChange={handleSearch}
                     onChange={Filter}
                 />
-                <MdClose className='pointer' onClick={() => setShowSearch(false)} />
+                <MdClose className='pointer' onClick={() => { setShowSearch(false); setButtonVisible(true); }} />
             </div>
-            <div className='pointer scrollable-div'>
+            <div className='pointer scrollable-div-search'>
 
                 {records.map((item, index) => (
                     <div key={index} className='container-fluid cart-products '>

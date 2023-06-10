@@ -41,7 +41,6 @@ function Appcontext({ children }) {
         let items = [...cartItems];
         let index = items.findIndex(product => product.title === productTitle)
         console.log('ITEMS INDEX : ', index);
-
         if (index !== -1) {
             items[index].quantity += quantity;
             console.log('ITEMS THAT ARE ALREADY PRESENT : ', index);

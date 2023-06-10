@@ -37,7 +37,7 @@ const Header = () => {
                     <div className=" links " >
                         <span className=" list-unstyled  d-flex " >
                             <li className="bold">
-                                <TbSearch className="icon pointer " onClick={() => setShowSearch(true)} />
+                                <TbSearch className="icon pointer " onClick={() => {setShowSearch(true); setButtonVisible(false);}} />
                             </li>
 
                         </span>
@@ -63,7 +63,7 @@ const Header = () => {
                 </svg>
             </div>}
             {ShowCart && <Cart setShowCart={setShowCart} setButtonVisible={setButtonVisible} />}
-            {ShowSearch && <Search setShowSearch={setShowSearch} />}
+            {ShowSearch && <Search setShowSearch={setShowSearch} setButtonVisible={setButtonVisible} />}
         </>
 
 

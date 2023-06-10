@@ -29,7 +29,7 @@
       color: #212121;
       outline: none;
       border: none;
-      text-transform: lowercase;
+      // text-transform: lowercase;
       @include md {
         font-size: 48px;
         height: 80px;
@@ -65,4 +65,13 @@
   @include md {
     width: 910px;
   }
+}
+.scrollable-div-search {
+  @include sm {
+    height: 530px;
+  }
+  height: 535px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }

@@ -23,11 +23,13 @@
   width: 56%;
 }
 .scrollable-div {
-  @include md {
+  @include sm {
     height: 530px;
   }
+  height: 450px;
   overflow-y: auto;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 .close-flex {
   display: flex;

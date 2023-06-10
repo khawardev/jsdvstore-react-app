@@ -26,7 +26,9 @@ function Appcontext({ children }) {
 
         let cartCount = 0;
         cartItems.map(item => cartCount += item.quantity)
-        setCarCount(cartCount);
+        setTimeout(() => {
+            setCarCount(cartCount);
+        }, 2000);
 
         let subTotal = 0;
         cartItems.map(item => subTotal += item.price * item.quantity)

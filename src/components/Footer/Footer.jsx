@@ -61,7 +61,7 @@ const Footer = () => {
             <div className="container ">
                 <div className="row text-sm-start text-center  ">
                     <div className="col-sm-6 col-12   ">
-                        <p> JSDVSTORE 2023 CREATED BY <b>KHAWAR SULTAN</b> </p>
+                        <p> JSDVSTORE 2023 CREATED BY <span style={{ color: '#872ce1' }}> <b>KHAWAR SULTAN</b>  </span> </p>
                     </div>
                     <div className="col-sm-6 col-12 text-sm-end text-center   ">
                         <p> <img src={Payments} /> </p>

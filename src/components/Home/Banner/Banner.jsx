@@ -19,7 +19,7 @@ function Banner() {
             behavior: 'smooth',
         });
     }
-    
+
     return (
         <>
             <div className="gradient py-sm-5 py-0" >
@@ -29,7 +29,7 @@ function Banner() {
                             <span className="Banner-heading">SALES</span>
                             <p>An online store catering to all electronic gadget lovers.Our wide variety of products comes from top-notch brands and offers high quality at competitive prices, Order Now !! </p>
                             <div className=" d-flex align-items-sm-start justify-content-sm-start align-items-center justify-content-center gap-2">
-                                <button className="Holo-Button" onClick={() => scrollBelowToLimitmore(3050)}>ABOUT US</button>
+                                <button className="Holo-Button" onClick={() => scrollBelowToLimitmore(5050)}>ABOUT US</button>
                                 <button className="Filled-Button " onClick={() => scrollBelowToLimit(750)}>SHOP NOW</button>
                             </div>
 

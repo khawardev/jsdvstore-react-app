@@ -11,7 +11,7 @@ import CartItem from "./CartItem/CartItem";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from 'react'
 import { Context } from "../../utils/AppContext";
-const Cart = ({ setShowCart, setButtonVisible }) => {
+const Cart = ({ setButtonVisible }) => {
 
 
   const { cartItems, cartSubTotal } = useContext(Context);
@@ -21,18 +21,16 @@ const Cart = ({ setShowCart, setButtonVisible }) => {
   return (
 
     <>
-      <div className="search-modal top-bottom   ">
-
+      <div className="top-bottom">
         <div className="content-a">
           <div className="form-field-cart ">
-            <div className="Cart-product-heading d-flex  align-items-center">SHOPPING CART</div>
-            <MdClose className='pointer cart-close' onClick={() => { setShowCart(false); setButtonVisible(true) }} />
+            <div className="Cart-product-heading d-flex  align-items-center"> <b>SHOPPING CART</b> </div>
           </div>
 
           {!cartItems?.length && <div className="Empty-cart">
             <BsCartX />
             <span>No product in the Cart</span>
-            <button className="Filled-purple-Button" onClick={() => setShowCart(false)} >RETURN TO SHOP</button>
+            <button className="Filled-purple-Button" onClick={() => Navigate("/")} >RETURN TO SHOP</button>
           </div>}
 
           {!!cartItems?.length && <CartItem />}

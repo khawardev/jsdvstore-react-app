@@ -37,7 +37,7 @@ const Header = () => {
                     <div className=" links " >
                         <span className=" list-unstyled  d-flex " >
                             <li className="bold">
-                                <TbSearch className="icon pointer " onClick={() => {setShowSearch(true); setButtonVisible(false);}} />
+                                <TbSearch className="icon pointer " onClick={() => { setShowSearch(true); setButtonVisible(false); }} />
                             </li>
 
                         </span>
@@ -48,7 +48,7 @@ const Header = () => {
                     <div className="  ">
                         <span className="d-flex list-unstyled gap-4 " >
 
-                            <li className=" position-relative pointer" onClick={() => { setShowCart(true); setButtonVisible(false); }}>
+                            <li className=" position-relative pointer" onClick={() => {Navigate("cart"); setButtonVisible(false);} }>
                                 <FiShoppingCart className="cart-icon" />
                                 {!!cartCount && <span className="cart-popup">{cartCount}</span>}
                             </li>

@@ -24,9 +24,9 @@
 }
 .scrollable-div {
   @include sm {
-    height: 530px;
+    height: 460px;
   }
-  height: 450px;
+  height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;

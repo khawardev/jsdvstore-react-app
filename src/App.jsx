@@ -27,7 +27,7 @@ function App() {
           <Route path="products" element={<Products ProductHeading={"Popular Products"} />} />
           <Route path="category/:id" element={<Category />} />
           <Route path="category/:cid/Single-Product/:pid" element={<SingleProduct />} />
-          {/* <Route path="cart" element={<Cart />} /> */}
+          <Route path="cart" element={<Cart />} />
         </Routes>
       </div>
     </AppContext>

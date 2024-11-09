@@ -32,7 +32,6 @@ function Banner() {
                                 <button className="Holo-Button" onClick={() => scrollBelowToLimitmore(5050)}>ABOUT US</button>
                                 <button className="Filled-Button " onClick={() => scrollBelowToLimit(750)}>SHOP NOW</button>
                             </div>
-
                         </div>
                         <div className="col-12 col-sm-6 pt-sm-0 pt-5  right">
                             <div className="d-flex justify-content-center py-sm-3 py-0 ">

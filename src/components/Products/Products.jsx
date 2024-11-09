@@ -6,8 +6,6 @@ const Products = ({ innerpage, ProductHeading, products, PaddingX, categoryid })
 
     return (
         <>
-
-
             <div className={`container ${PaddingX}`}  >
                 {!innerpage && <div className="py-4">
                     <span className="sec-heading text-capitalize"> <b>{ProductHeading}</b></span>
@@ -16,8 +14,6 @@ const Products = ({ innerpage, ProductHeading, products, PaddingX, categoryid })
                     <Product products={products} categoryid={categoryid} />
                 </div>
             </div>
-
-
         </>
 
     );
